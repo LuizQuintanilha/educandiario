@@ -3,9 +3,9 @@ class HomeController < ApplicationController
     @welcome = 'Seja bem-vindo!'
     @para_acessar = 'Para acessar a plataforma insira e-mail e senha cadastrados'
   end
-  def cadastra(email, senha)
-    @email = gets.chomp()
-    @senha = gets.chomp()    
+  def cadastro(email, senha)
+    @email = email
+    @senha = senha
   end
 
 end
