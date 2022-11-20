@@ -1,8 +1,10 @@
 class CadastroController < ApplicationController
   def index
+    @cadastro = Cadastro.all
   end
 
   def show
+    @cadastro = Cadastro.find(params[:id])
   end
 
   def new
