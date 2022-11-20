@@ -1,4 +1,4 @@
 class ContaController < ApplicationController
-  def index
+  def new
   end
 end

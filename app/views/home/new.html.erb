@@ -1,0 +1,18 @@
+<h1>.::Nome da Instituição de Ensino::.</h1>
+
+<%= form_for :session, url: home_path do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :senha %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+  <p>Novo cadastro? <%= link_to "Cadastro", new_cadastro_path %></p>
+<% end %>
+

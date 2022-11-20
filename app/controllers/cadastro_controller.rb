@@ -1,25 +1,31 @@
 class CadastroController < ApplicationController
-    def index
+  def index
+  end
+
+  def show
+  end
+
+  def new
+    @cadastro = Cadastro.new
+  end
+
+  def create
+    @cadastro = Cadastro.new(user_params)
+    if @cadastro.save 
+      redirect_to @cadastro, notice:"Usuário cadastrado com sucesso"
+      sign_in(@cadastro)
+    else
+      render action: new
     end
     
-    def new
-        @user = User.new
+    @cadastro= User.find_by(email: params[:session][:email].downcase)
+    if @cadastro && cadastro.authenticate(params[:session][:password])
+      sign_in @user
     end
-    
-    def create
-        
-        @user = User.new(user_params)
-        if @user.save
-          redirect_to root_path
-        else
-          render :new
-        end
-        #render plain: "Cheguei"
-    end
-    
-      private
-    
-      def user_params
-        params.require(:user).permit(:email, :password)
-      end
+  end
+
+  private
+  def user_params
+    params.require(:cadastro).permit(:name, :email, :password, :password_confirmation)
+  end
 end
