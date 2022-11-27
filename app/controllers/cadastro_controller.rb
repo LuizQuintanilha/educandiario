@@ -22,7 +22,7 @@ class CadastroController < ApplicationController
     
     @cadastro= User.find_by(email: params[:session][:email].downcase)
     if @cadastro && cadastro.authenticate(params[:session][:password])
-      sign_in @user
+      sign_in @cadastro
     end
   end
 

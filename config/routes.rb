@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :cadastro
-  get 'home', to:  'home#new'
+  get 'home', to: 'home#new'
   post 'home_in', to: 'home#create'
   delete 'home_out', to:'home#destroy'
   #get 'users/new'
